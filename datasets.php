@@ -253,7 +253,7 @@ include('includes/header.php'); ?>
 		<div class="pull-right">
 			<a class="btn" href="datasets.php?edit=<?php echo $project['id']; ?>">Edit Datasets</a> &nbsp; 
 			<a class="btn" href="datasets.php?add=<?php echo $project['id']; ?>">Add Datasets</a> &nbsp; 
-			<a href="#sra-links-modal" role="button" class="btn btn-primary" data-toggle="modal">Get SRA Links</a>
+			<a href="#sra-links-modal" role="button" class="btn btn-primary" data-toggle="modal">Get SRA Accessions</a>
 		</div>
 	<?php } ?>
 
@@ -322,11 +322,11 @@ include('includes/header.php'); ?>
 <div id="sra-links-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sra-links-modal-header" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="sra-links-modal-header">SRA Download Links</h3>
+    <h3 id="sra-links-modal-header">SRA Download Accessions</h3>
   </div>
   <div class="modal-body"><pre style="overflow-x: scroll; white-space: nowrap; font-size: 0.8em;">[ loading ]</pre></div>
   <div class="modal-footer">
-	<p class="muted pull-left">NB: Works with <a href="http://clusterflow.io">Cluster Flow</a>.</p>
+	<p class="muted pull-left">NB: Works with <a href="https://github.com/s-andrews/sradownloader">SRA Downloader</a>.</p>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 	<button class="btn" id="datasets_download_file">Download</button>
 	<button class="btn btn-primary" id="datasets_save_to_server" data-projectid="<?php echo $project_id; ?>">Save to cluster</button>
