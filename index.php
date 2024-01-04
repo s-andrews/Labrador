@@ -62,7 +62,7 @@ include('includes/header.php');
                     $available       = preg_replace("/P|T|G/", "", $space_headers[1]);
                     $usednumber      = preg_replace("/P|T|G/", "", $space_headers[2]);
 
-                    if( is_numeric($available) & is_numeric($usednumber) & ($usednumber/$available < .25 )) { 
+                    if( is_numeric($available) & is_numeric($usednumber) & ((float)$usednumber/(float)$available < .25 )) { 
                        $fontcol = "red"; } 
                     else { 
                        $fontcol = "green"; }
