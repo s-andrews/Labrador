@@ -340,7 +340,7 @@ include('includes/header.php'); ?>
 						<td><?php echo find_genome($raw_path); ?> <?php echo find_parameters($raw_path); ?></td>
 						<td class="path"><a href="download_file.php?fn=<?php echo substr($raw_path, strlen($data_root)); ?>"><?php echo $path; ?></a></td>
 						<td><a href="http://<?php echo make_url_alias($labrador_url,$dataset['name'],$data_alias,$path); ?>">[Hard Link]</a>
-                                                    <?php echo make_webstartlink(make_url_alias($labrador_url,$dataset['name'],$data_alias,$path)); ?></td>
+                                                    <?php echo make_webstartlink(make_url_alias($labrador_url,$dataset['name'],$data_alias,$path),NULL); ?></td>
 					</tr>
 				<?php
 				        } // human_readable if statement
