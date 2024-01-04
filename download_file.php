@@ -35,7 +35,7 @@ require_once('conf/labrador_config.php');
 @ini_set('error_reporting', E_ALL & ~ E_NOTICE);
  
 //- turn off compression on the server
-@apache_setenv('no-gzip', 1);
+// @apache_setenv('no-gzip', 1); // Doesn't work when running with php-fpm
 @ini_set('zlib.output_compression', 'Off');
  
 if(!isset($_REQUEST['fn']) || empty($_REQUEST['fn']) || !isset($data_root) || empty($data_root)) {
