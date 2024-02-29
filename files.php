@@ -253,6 +253,7 @@ include('includes/header.php'); ?>
 				<tbody>
 				<?php
 				function find_genome($path){
+					global $samtools_path;
 
                                         if(!isset($samtools_path)){
                                             $samtools_path = '';
@@ -289,6 +290,7 @@ include('includes/header.php'); ?>
 				}
 				function find_parameters($path){
 					// BAM and SAM files
+					global $samtools_path;
 					if(substr($path, -4) == '.bam' || substr($path, -4) == '.bam'){
 						$bam_header = shell_exec (escapeshellcmd ($samtools_path.'samtools view -H '.$path));
 						$bam_headers = explode("\n", $bam_header);
