@@ -17,7 +17,6 @@
 #                                                                        #
 # You should have received a copy of the GNU General Public License      #
 # along with Labrador.  If not, see <http://www.gnu.org/licenses/>.      #
-##########################################################################
 
 include('includes/start.php');
 
@@ -267,7 +266,7 @@ include('includes/header.php'); ?>
 						foreach($bam_headers as $header){
 							if(stripos($header, 'Genomes/')){
 								$genomes = explode(" ", substr($header, stripos($header, 'Genomes/') + 8));
-								$genomes2 = preg_split("/", $genomes[0]);
+								$genomes2 = preg_split("!/!", $genomes[0]);
 								$genome = $genomes2[0].' - '.$genomes2[1];
 							}
 						}
@@ -357,7 +356,7 @@ include('includes/header.php'); ?>
 						<td><?php echo find_genome($raw_path); ?></td>
 						<td class="path"><a href="download_file.php?fn=<?php echo substr($raw_path, strlen($data_root)); ?>"><?php echo $path; ?></a></td>
                                                 <td><a href="http://<?php echo make_url_alias($labrador_url,"",$data_alias,$path); ?>">[Hard Link]</a>
-                                                    <?php echo make_webstartlink(make_url_alias($labrador_url,"",$data_alias,$path)); ?></td>
+                                                    <?php echo make_webstartlink(make_url_alias($labrador_url,"",$data_alias,$path),""); ?></td>
 					</tr>
 				<?php } // foreach orhpans ?></tbody>
 			</table>
