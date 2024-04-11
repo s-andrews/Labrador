@@ -65,9 +65,9 @@ if(isset($_GET['delete']) && is_numeric($_GET['delete']) && $admin){
 
 if($project_id){
 	$projects = mysqli_query($dblink, "SELECT * FROM `projects` WHERE `id` = '".$project_id."' LIMIT 1");
+	$project_users = array();
 	if(mysqli_num_rows($projects) > 0){
 		$project = mysqli_fetch_array($projects);
-		$project_users = array();
 		$project_users_q = mysqli_query($dblink, "SELECT `user_id` FROM `project_contacts` WHERE `project_id` = '$project_id'");
 		if(mysqli_num_rows($project_users_q) > 0){
 			while($project_user = mysqli_fetch_array($project_users_q)){
@@ -187,6 +187,9 @@ if($user && isset($_POST['save_project']) && $_POST['save_project'] == 'Save Pro
 
 			// Saved project - now save contacts
 			$contacts = array_unique($contacts);
+
+			// We can end up with blank values in here so remove those
+			$contacts = array_filter($contacts);
 			$insert_contacts = $contacts;
 			$contacts_q = mysqli_query($dblink, "SELECT `id`, `user_id` FROM `project_contacts` WHERE `project_id` = '$project_id'");
 			if(mysqli_num_rows($contacts_q) > 0){
