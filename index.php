@@ -169,7 +169,7 @@ include('includes/header.php');
 			} else if($admin && isset($_GET['unassigned'])){
 				$sql .= " WHERE `assigned_to` IS NULL OR `assigned_to` = ''";
 			}
-			$sql .=  " ORDER BY `id` DESC";
+			$sql .=  " ORDER BY `projects`.`id` DESC";
 			$projects = mysqli_query($dblink, $sql);
 			if(mysqli_num_rows($projects) > 0){
 				while($project = mysqli_fetch_array($projects)){
