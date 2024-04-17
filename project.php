@@ -145,6 +145,9 @@ if($user && isset($_POST['save_project']) && $_POST['save_project'] == 'Save Pro
 		$contacts = $_POST['contacts'];
 	} else {
 		$contacts = $project_users;
+		if (is_null($contacts)) {
+			$contacts[] = [];
+		}
 		if(!in_array($user['id'], $contacts)){
 			$contacts[] = $user['id'];
 		}
